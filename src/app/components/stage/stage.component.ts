@@ -16,7 +16,7 @@ export class StageComponent implements OnInit {
         this.difficulty = this.router.url.split('/')[2];
         setTimeout(() => {
             this.router.navigate(['/question/1']);
-        }, 4500);
+        }, 4000);
     }
 
 }
