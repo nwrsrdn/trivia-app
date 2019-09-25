@@ -10,7 +10,6 @@ import { QuestionService } from '../../service/question.service';
 })
 export class QuestionComponent implements OnInit {
     questions: Question;
-    final_answer: string;
 
     constructor(private questionService: QuestionService) { }
 
@@ -21,12 +20,13 @@ export class QuestionComponent implements OnInit {
     getQuestion(): void {
         this.questionService.getQuestion().subscribe((question) => {
             this.questions = this.questionService.organizeQuestion(question);
+            console.log(this.questions.correct_answer);
         });
     }
 
-    getFinalAnswer(): void {
-        let answer: boolean = this.questionService.checkAnswer(this.final_answer, this.questions.correct_answer);
-
+    getFinalAnswer(final_answer): void {
+        let answer: boolean = this.questionService.checkAnswer(final_answer, this.questions.correct_answer);
+        console.log(answer);
     }
 
 }

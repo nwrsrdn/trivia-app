@@ -13,7 +13,7 @@ export class QuestionService {
         params: {
             amount: '1' ,
             type: 'multiple' ,
-            difficulty: ['easy', 'medium']
+            difficulty: ['medium']
         }
     }
 
@@ -28,12 +28,18 @@ export class QuestionService {
         let correct: string = results.results[0].correct_answer;
         return {
             category: results.results[0].category,
-            question: results.results[0].question,
+            question: this.parseQuestion(results.results[0].question),
             difficulty: results.results[0].difficulty,
             correct_answer: results.results[0].correct_answer,
             incorrect_answers: results.results[0].incorrect_answers,
             choices: this.randomizeChoices(incorrects, correct),
         };
+    }
+
+    parseQuestion(question: string) : string {
+        let parser = new DOMParser();
+        let parsedQuestion = parser.parseFromString(question, 'text/html');
+        return parsedQuestion.body.textContent;
     }
 
     randomizeChoices(incorrects: string[], correct: string): string[] {

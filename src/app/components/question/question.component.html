@@ -1,16 +1,13 @@
-<div *ngIf="questions">
-    <div>
-        <h3>Category:</h3>
-        <h4>{{ questions.category }}</h4>
-    </div>
-    <div>
-        <p>{{ questions.question }}</p>
-    </div>
-    <div *ngFor="let answer of questions.choices">
-        <input type="radio" name="final_answer" [(ngModel)]="final_answer" value="{{ answer }}">{{ answer }}
+<!-- <mat-spinner *ngIf="!questions"></mat-spinner> -->
+<mat-progress-bar *ngIf="!questions" mode="query"></mat-progress-bar>
 
-    </div>
-    <div>
-        <button type="button" name="button" (click)="getFinalAnswer()">Answer</button>
-    </div>
-</div>
+<mat-card *ngIf="questions" style="width: auto; margin: auto; text-align: center;">
+    <mat-card-title>{{ questions.category }}</mat-card-title>
+    <mat-card-subtitle>Category</mat-card-subtitle>
+    <mat-card-content>{{ questions.question }}</mat-card-content>
+    <mat-card-actions>
+        <mat-button-toggle-group>
+            <mat-button-toggle *ngFor="let answer of questions.choices" (click)="getFinalAnswer(final_answer.value)" #final_answer value="{{ answer }}">{{ answer }}</mat-button-toggle>
+        </mat-button-toggle-group>
+    </mat-card-actions>
+</mat-card>
