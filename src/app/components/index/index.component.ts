@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-index',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IndexComponent implements OnInit {
 
-    constructor() { }
+    start: boolean = false;
+
+    constructor(private router: Router) { }
 
     ngOnInit() {
+    }
+
+    startGame(): void {
+        this.start = true;
+        setTimeout(() => {
+            this.router.navigate(['/questions']);
+        }, 3000);
     }
 
 }
