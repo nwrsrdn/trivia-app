@@ -1,17 +1,18 @@
 div.container {
+    margin-top: 200px;
     display: flex;
     justify-content: space-around;
 
     div.highscores-container{
         width: 50%;
         display: flex;
-        justify-content: center;
+        justify-content: flex-end;
     }
 
     div.new-game-btn {
         width: 50%;
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
         padding: 100px;
 
@@ -33,7 +34,7 @@ div.container {
 
             button {
                 margin-top: -30px;
-                padding: 15px;
+                padding: 12px;
                 color: #fff;
                 background-color: #008744;
                 border-radius: 10px;

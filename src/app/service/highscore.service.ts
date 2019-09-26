@@ -9,9 +9,19 @@ import { HIGHSCORES } from '../mock-data/mock-highscores';
 })
 export class HighscoreService {
 
+    name: string;
+    total_score: number = 0;
+
     constructor() { }
 
-  getHighscores(): Observable<Highscore[]> {
-      return of(HIGHSCORES);
-  }
+    getHighscores(): Observable<Highscore[]> {
+        return of(HIGHSCORES);
+    }
+
+    add(name: string): void {
+        HIGHSCORES.push({
+            name: this.name,
+            total_score: this.total_score
+        });
+    }
 }
