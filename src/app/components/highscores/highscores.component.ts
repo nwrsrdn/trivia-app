@@ -12,6 +12,8 @@ export class HighscoresComponent implements OnInit {
 
     highscores: Highscore[];
 
+    columnsToDisplay: string[] = ['name', 'total_score'];
+
     constructor(private highscoreService: HighscoreService) { }
 
     ngOnInit() {

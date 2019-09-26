@@ -1,0 +1,33 @@
+mat-card {
+    width: 20%;
+    margin: 50px;
+    box-shadow: -14px 15px 20px 9px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12) !important;
+
+    mat-card-title {
+        text-align: center;
+        border-radius: 20px;
+        margin-top: -55px;
+        padding: 20px;
+        background-color: #ffa700;
+        box-shadow: 0px 1px 5px 0px black;
+    }
+
+    mat-card-content {
+        display: flex;
+        justify-content: center;
+
+        table {
+            margin-top: 10px;
+            width: 100%;
+            text-align: center;
+
+            th {
+                text-align: center;
+                font-size: 18px;
+            }
+            tr {
+                //
+            }
+        }
+    }
+}

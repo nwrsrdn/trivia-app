@@ -1,11 +1,24 @@
-<div *ngFor="let question of questions">
-<h3>Category:</h3>
-<h4>{{ question.category }}</h4>
-
-<p>{{ question.question }}</p>
-
-<ul>
-    <li>{{ question.correct_answer }}</li>
-    <li *ngFor="let wrong of question.incorrect_answers">{{ wrong }}</li>
-</ul>
-</div>
+<!-- <mat-spinner *ngIf="!questions"></mat-spinner> -->
+<mat-progress-bar *ngIf="!questions" mode="indeterminate"></mat-progress-bar>
+<div class="push-bottom"></div>
+<mat-card *ngIf="questions">
+    <mat-card-title>{{ questions.category }}</mat-card-title>
+    <mat-card-subtitle>
+        <mat-chip-list aria-label="Fish selection">
+            <mat-chip color="primary" selected>Category</mat-chip>
+        </mat-chip-list>
+    </mat-card-subtitle>
+    <mat-card-content>
+        <h2>Question:</h2>{{ questions.question }}
+    </mat-card-content>
+    <mat-card-actions>
+        <h3>Answers:</h3>
+        <mat-button-toggle-group vertical>
+            <mat-button-toggle *ngFor="let answer of questions.choices" (click)="getFinalAnswer(final_answer.value)" #final_answer value="{{ answer }}">
+                {{ answer }}
+            </mat-button-toggle>
+        </mat-button-toggle-group>
+    </mat-card-actions>
+</mat-card>
+<!-- <modal-results></modal-results> -->
+<!-- <app-stage *ngIf="isCorrect === 'Incorrect'"></app-stage> -->
