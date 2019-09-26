@@ -1,12 +1,10 @@
 <h3>Highscores</h3>
 <table>
     <tr>
-        <th>No</th>
         <th>Name</th>
         <th>Score</th>
     </tr>
     <tr *ngFor="let highscore of highscores">
-        <td>{{ highscore.no }}</td>
         <td>{{ highscore.name }}</td>
         <td>{{ highscore.total_score }}</td>
     </tr>

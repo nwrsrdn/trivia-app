@@ -28,7 +28,7 @@ export class QuestionService {
         let correct: string = results.results[0].correct_answer;
         return {
             category: results.results[0].category,
-            question: this.parseQuestion(results.results[0].question),
+            question: this.parseString(results.results[0].question),
             difficulty: results.results[0].difficulty,
             correct_answer: results.results[0].correct_answer,
             incorrect_answers: results.results[0].incorrect_answers,
@@ -36,9 +36,9 @@ export class QuestionService {
         };
     }
 
-    parseQuestion(question: string) : string {
+    parseString(stringValue: string) : string {
         let parser = new DOMParser();
-        let parsedQuestion = parser.parseFromString(question, 'text/html');
+        let parsedQuestion = parser.parseFromString(stringValue, 'text/html');
         return parsedQuestion.body.textContent;
     }
 
@@ -52,10 +52,17 @@ export class QuestionService {
         temp = incorrects[x];
         incorrects[x] = correct;
         incorrects[3] = temp;
-        return incorrects;
+        let answers: string[] = incorrects.map((current_value: string) => {
+            return this.parseString(current_value);
+        });
+        return answers;
     }
 
     checkAnswer(final_answer: string, correct_answer: string): boolean {
         return final_answer === correct_answer;
+    }
+
+    showResult(result: boolean): void {
+        //
     }
 }

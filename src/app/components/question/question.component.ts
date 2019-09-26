@@ -6,10 +6,14 @@ import { QuestionService } from '../../service/question.service';
 @Component({
     selector: 'app-question',
     templateUrl: './question.component.html',
-    styleUrls: ['./question.component.scss']
+    styleUrls: ['./question.component.scss'],
+    // animations: [
+    // ]
 })
 export class QuestionComponent implements OnInit {
     questions: Question;
+
+    isCorrect: boolean;
 
     constructor(private questionService: QuestionService) { }
 
@@ -26,7 +30,25 @@ export class QuestionComponent implements OnInit {
 
     getFinalAnswer(final_answer): void {
         let answer: boolean = this.questionService.checkAnswer(final_answer, this.questions.correct_answer);
-        console.log(answer);
+         this.isCorrect = answer;
+         this.checkResults();
+    }
+
+    checkResults() {
+        if (this.isCorrect === false) {
+            this.finalResults();
+        }
+        this.nextQuestion();
+    }
+
+    nextQuestion() {
+        delete this.questions;
+        delete this.isCorrect;
+        this.getQuestion();
+    }
+
+    finalResults() {
+        // redirect to highscore page
     }
 
 }

@@ -1,5 +1,5 @@
 <!-- <mat-spinner *ngIf="!questions"></mat-spinner> -->
-<mat-progress-bar *ngIf="!questions" mode="query"></mat-progress-bar>
+<mat-progress-bar *ngIf="!questions" mode="indeterminate"></mat-progress-bar>
 <div class="push-bottom"></div>
 <mat-card *ngIf="questions">
     <mat-card-title>{{ questions.category }}</mat-card-title>
@@ -20,3 +20,5 @@
         </mat-button-toggle-group>
     </mat-card-actions>
 </mat-card>
+<!-- <modal-results></modal-results> -->
+<!-- <app-stage *ngIf="isCorrect === 'Incorrect'"></app-stage> -->

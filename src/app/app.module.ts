@@ -5,7 +5,6 @@ import { FormsModule } from '@angular/forms';
 
 import { MaterialModule } from './material/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-// import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
@@ -18,7 +17,7 @@ import { QuestionComponent } from './components/question/question.component';
     AppComponent,
     IndexComponent,
     HighscoresComponent,
-    QuestionComponent
+    QuestionComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,7 +26,6 @@ import { QuestionComponent } from './components/question/question.component';
     FormsModule,
     MaterialModule,
     BrowserAnimationsModule,
-    // MatButtonToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]
