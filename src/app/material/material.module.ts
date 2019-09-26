@@ -7,6 +7,7 @@ import {
     MatCardModule,
     MatProgressBarModule,
     MatChipsModule,
+    MatTableModule,
 } from '@angular/material';
 
 import { FormsModule } from '@angular/forms';
@@ -22,6 +23,7 @@ import { FormsModule } from '@angular/forms';
         MatCardModule,
         MatProgressBarModule,
         MatChipsModule,
+        MatTableModule,
     ],
     exports: [
         CommonModule,
@@ -32,6 +34,7 @@ import { FormsModule } from '@angular/forms';
         MatCardModule,
         MatProgressBarModule,
         MatChipsModule,
+        MatTableModule,
     ]
 })
 export class MaterialModule { }
