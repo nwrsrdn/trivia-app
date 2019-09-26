@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { HighscoreService } from '../../service/highscore.service';
+
 @Component({
     selector: 'app-index',
     templateUrl: './index.component.html',
@@ -8,18 +10,22 @@ import { Router } from '@angular/router';
 })
 export class IndexComponent implements OnInit {
 
-    start: boolean = false;
+    error: boolean = false;
 
-    constructor(private router: Router) { }
+
+    constructor(private router: Router, private highscore: HighscoreService) { }
 
     ngOnInit() {
     }
 
-    startGame(): void {
-        this.start = true;
-        setTimeout(() => {
-            this.router.navigate(['/questions']);
-        }, 3000);
+    startGame(name: string): void {
+        if (name) {
+            this.highscore.add(name);
+            setTimeout(() => {
+                this.router.navigate(['/questions']);
+            }, 1000);
+        }
+        this.error = true;
     }
 
 }

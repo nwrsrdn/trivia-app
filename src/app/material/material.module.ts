@@ -8,9 +8,11 @@ import {
     MatProgressBarModule,
     MatChipsModule,
     MatTableModule,
+    MatButtonModule,
+    MatInputModule
 } from '@angular/material';
 
-import { FormsModule } from '@angular/forms';
+import { FormsModule, Validators } from '@angular/forms';
 
 @NgModule({
     declarations: [],
@@ -24,6 +26,8 @@ import { FormsModule } from '@angular/forms';
         MatProgressBarModule,
         MatChipsModule,
         MatTableModule,
+        MatButtonModule,
+        MatInputModule
     ],
     exports: [
         CommonModule,
@@ -35,6 +39,8 @@ import { FormsModule } from '@angular/forms';
         MatProgressBarModule,
         MatChipsModule,
         MatTableModule,
+        MatButtonModule,
+        MatInputModule
     ]
 })
 export class MaterialModule { }

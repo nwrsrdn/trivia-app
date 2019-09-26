@@ -1,5 +1,5 @@
 import { Highscore } from '../classes/highscore';
-export const HIGHSCORES: Highscore[] = [
+export var HIGHSCORES: Highscore[] = [
     { name: 'ABC', total_score: 900 },
     { name: 'DEF', total_score: 800 },
     { name: 'GHI', total_score: 700 },

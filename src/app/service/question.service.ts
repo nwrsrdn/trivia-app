@@ -13,7 +13,6 @@ export class QuestionService {
         params: {
             amount: '1' ,
             type: 'multiple' ,
-            difficulty: ['medium']
         }
     }
 
